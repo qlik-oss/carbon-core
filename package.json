@@ -9,12 +9,16 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "files": [
+    "src"
+  ],
   "repository": {
     "url": "git@github.com:qlik-oss/carbon-core.git"
   },
   "scripts": {
     "lint": "npx eslint . --fix",
-    "test": "npx jest --passWithNoTests"
+    "test": "npx jest --passWithNoTests",
+    "ci:install": "yarn install --frozen-lockfile"
   },
   "devDependencies": {
     "@semantic-release/changelog": "6.0.1",
