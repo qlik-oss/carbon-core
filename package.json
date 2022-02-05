@@ -1,5 +1,5 @@
 {
-  "name": "@qlik-trial/carbon-core",
+  "name": "carbon-core",
   "version": "1.0.1",
   "description": "Core components for react-native-carbon",
   "main": "src/index.js",
