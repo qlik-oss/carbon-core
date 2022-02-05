@@ -1,6 +1,6 @@
 {
   "name": "@qlik-trial/carbon-core",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "description": "Core components for react-native-carbon",
   "main": "src/index.js",
   "author": "Qlik",
