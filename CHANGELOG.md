@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/qlik-oss/carbon-core/compare/v1.0.2...v1.0.3) (2022-02-05)
+
+
+### Bug Fixes
+
+* package name ([0f42f44](https://github.com/qlik-oss/carbon-core/commit/0f42f44158e4139cecbc14513e41db969b706079))
+
 ## [1.0.2](https://github.com/qlik-oss/carbon-core/compare/v1.0.1...v1.0.2) (2022-02-05)
 
 
