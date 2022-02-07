@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/qlik-oss/carbon-core/compare/v1.0.3...v1.0.4) (2022-02-07)
+
+
+### Bug Fixes
+
+* release to npmjs ([f139b65](https://github.com/qlik-oss/carbon-core/commit/f139b655944efd7a5d0d3e604ef6b6676354ee47))
+
 ## [1.0.3](https://github.com/qlik-oss/carbon-core/compare/v1.0.2...v1.0.3) (2022-02-05)
 
 
