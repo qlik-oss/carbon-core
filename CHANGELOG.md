@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/qlik-oss/carbon-core/compare/v1.0.5...v1.0.6) (2022-02-10)
+
+
+### Bug Fixes
+
+* update license ([8c6cc93](https://github.com/qlik-oss/carbon-core/commit/8c6cc93e664e01a54f43758395a2654f242bb96d))
+
 ## [1.0.5](https://github.com/qlik-oss/carbon-core/compare/v1.0.4...v1.0.5) (2022-02-10)
 
 
