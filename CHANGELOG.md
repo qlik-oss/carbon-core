@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/qlik-oss/carbon-core/compare/v1.0.4...v1.0.5) (2022-02-10)
+
+
+### Bug Fixes
+
+* update eslint rules ([086f09b](https://github.com/qlik-oss/carbon-core/commit/086f09b9fd443b3a2fa419ad3fce5966542138d4))
+
 ## [1.0.4](https://github.com/qlik-oss/carbon-core/compare/v1.0.3...v1.0.4) (2022-02-07)
 
 
