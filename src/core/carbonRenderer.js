@@ -1,10 +1,10 @@
-import getPixelWidth from "string-pixel-width";
-import createRendererBox from "picasso.js/src/web/renderer/renderer-box";
-import { textBounds } from "picasso.js/src/web/text-manipulation";
-import { Scene } from "./scene";
+import getPixelWidth from 'string-pixel-width';
+import createRendererBox from 'picasso.js/src/web/renderer/renderer-box';
+import {textBounds} from 'picasso.js/src/web/text-manipulation';
+import {Scene} from './scene';
 
 const carbonRenderer = () => {
-  const rnRenderer = { textBounds };
+  const rnRenderer = {textBounds};
   const scene = new Scene();
   let rect = createRendererBox();
   let element;
@@ -26,22 +26,22 @@ const carbonRenderer = () => {
 
   rnRenderer.measureText = (opt) => {
     if (!opt.text) {
-      return { width: getPixelWidth(opt, { size: 12 }), height: 12 };
+      return {width: getPixelWidth(opt, {size: 12}), height: 12};
     }
     let size = parseInt(opt.fontSize, 10);
     if (isNaN(size)) {
       size = 12;
     }
 
-    const sourceFont = opt.fontFamily || "arial";
+    const sourceFont = opt.fontFamily || 'arial';
 
     const fontFamily = sourceFont
-      .split(",")
+      .split(',')
       .map((s) => s?.trim()?.toLowerCase());
     const font = fontFamily.length > 1 ? fontFamily[1] : fontFamily[0];
     const dims = opt.fontSize
-      ? { width: getPixelWidth(opt.text, { size, font }), height: size }
-      : { width: getPixelWidth(opt.text, { size: 12, font }) };
+      ? {width: getPixelWidth(opt.text, {size, font}), height: size}
+      : {width: getPixelWidth(opt.text, {size: 12, font})};
     dims.width = Math.round(dims.width);
     dims.height = Math.round(dims.height);
     return dims;
@@ -89,7 +89,7 @@ const carbonRenderer = () => {
     scene.reset();
 
     const onShape = (shape) => {
-      if (shape.type === "container") {
+      if (shape.type === 'container') {
         shape.children.forEach((child) => {
           onShape(child);
         });
@@ -112,4 +112,4 @@ const carbonRenderer = () => {
   rnRenderer.findShapes = (selector) => scene.findShapes(selector);
   return rnRenderer;
 };
-export { carbonRenderer };
+export {carbonRenderer};

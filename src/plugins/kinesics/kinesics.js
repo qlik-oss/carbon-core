@@ -1,8 +1,8 @@
 export const kinesics = (config) => {
-  const key = "kinesics";
+  const key = 'kinesics';
   const triggerBrushes = [];
   let onTouchStart = [];
-  const { element } = config;
+  const {element} = config;
   let initialized = false;
 
   function setupBrushes() {
@@ -12,7 +12,7 @@ export const kinesics = (config) => {
         if (cc.brush.trigger) {
           cc.brush.trigger.forEach((brush) => {
             const cbrush = config.brush(brush.contexts[0]);
-            triggerBrushes.push({ cbrush, data: brush.data });
+            triggerBrushes.push({cbrush, data: brush.data});
           });
         }
       }
@@ -22,7 +22,7 @@ export const kinesics = (config) => {
   function setupInteractions() {
     if (config?.settings?.interactions) {
       onTouchStart = config.settings.interactions.reduce((acc, curr) => {
-        if (curr.type !== "kinesics") {
+        if (curr.type !== 'kinesics') {
           if (curr.events.touchstart) {
             acc.push(curr.events.touchstart);
           }
@@ -58,8 +58,8 @@ export const kinesics = (config) => {
         });
         element.setTouchesStartListener((touches) => {
           onTouchStart.forEach((c) => {
-            const touchEvent = { clientX: touches[0], clientY: touches[1] };
-            const comp = { chart: config };
+            const touchEvent = {clientX: touches[0], clientY: touches[1]};
+            const comp = {chart: config};
             c.call(comp, touchEvent);
           });
         });

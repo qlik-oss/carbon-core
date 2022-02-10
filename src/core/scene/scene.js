@@ -1,7 +1,7 @@
-import { create as createGeometry } from "picasso.js/src/core/geometry";
-import { Quadtree } from "./quadtree";
-import { aabFrom } from "./aab";
-import { narrowPhase } from "./narrowPhaseCollision";
+import {create as createGeometry} from 'picasso.js/src/core/geometry';
+import {Quadtree} from './quadtree';
+import {aabFrom} from './aab';
+import {narrowPhase} from './narrowPhaseCollision';
 
 export class Scene {
   constructor() {
@@ -39,13 +39,13 @@ export class Scene {
           ...shape,
         });
 
-        if (shape.type !== "text") {
+        if (shape.type !== 'text') {
           const AAB = aabFrom(shape);
           this.tree.insert(AAB);
         }
       }
     } catch (e) {
-      console.log("Failed to add shape", e);
+      console.log('Failed to add shape', e);
     }
   }
 
@@ -76,17 +76,17 @@ export class Scene {
         width: radius,
         height: radius,
       };
-      const line = createGeometry("line", input);
-      this.findItem(rect, results, radius, "line", line);
+      const line = createGeometry('line', input);
+      this.findItem(rect, results, radius, 'line', line);
     } else if (input.vertices) {
-      const polygon = createGeometry("polygon", input);
-      this.findItem(polygon.boundingRect(), results, 0, "polygon", polygon);
+      const polygon = createGeometry('polygon', input);
+      this.findItem(polygon.boundingRect(), results, 0, 'polygon', polygon);
     }
 
     return results;
   }
 
-  findItem(rect, results, radius = 1, type = "point", shape = undefined) {
+  findItem(rect, results, radius = 1, type = 'point', shape = undefined) {
     if (this.tree) {
       const elements = this.tree.find(rect);
       if (elements) {

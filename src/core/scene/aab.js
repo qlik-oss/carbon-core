@@ -1,9 +1,9 @@
 export const aabFrom = (shape) => {
   switch (shape.type) {
-    case "rect": {
+    case 'rect': {
       return shape;
     }
-    case "circle": {
+    case 'circle': {
       return {
         x: shape.cx - shape.r,
         y: shape.cy - shape.r,

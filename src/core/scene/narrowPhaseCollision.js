@@ -1,17 +1,17 @@
-import { rectToPoints } from "picasso.js/src/core/geometry/util";
+import {rectToPoints} from 'picasso.js/src/core/geometry/util';
 
 export const narrowPhase = (
   elements,
   rect,
   results,
   radius = 1,
-  type = "point",
-  shape = undefined
+  type = 'point',
+  shape = undefined,
 ) => {
   const accept = (d) => {
-    results.push({ d, node: { ...d, data: d.data } });
+    results.push({d, node: {...d, data: d.data}});
   };
-  if (type === "point") {
+  if (type === 'point') {
     elements.forEach((e) => {
       if (
         rectCirle(
@@ -20,7 +20,7 @@ export const narrowPhase = (
             y: rect.y + radius * 0.5,
             radius,
           },
-          e
+          e,
         )
       ) {
         accept(e);
@@ -31,20 +31,20 @@ export const narrowPhase = (
       switch (target.type) {
         // TODO: implement rest of shapes and
         // inversetransforms
-        case "rect": {
+        case 'rect': {
           const points = rectToPoints(target);
           if (shape.intersectsRect(points)) {
             accept(target);
           }
           break;
         }
-        case "circle": {
+        case 'circle': {
           break;
         }
-        case "line": {
+        case 'line': {
           break;
         }
-        case "path": {
+        case 'path': {
           break;
         }
         default: {

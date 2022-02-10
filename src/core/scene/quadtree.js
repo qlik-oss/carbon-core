@@ -20,8 +20,8 @@ export class Quadtree {
   partition() {
     const width = this.bounds.width * 0.5;
     const height = this.bounds.height * 0.5;
-    const { x } = this.bounds;
-    const { y } = this.bounds;
+    const {x} = this.bounds;
+    const {y} = this.bounds;
     const next = this.level + 1;
 
     this.nodes.push(
@@ -32,8 +32,8 @@ export class Quadtree {
           width,
           height,
         },
-        next
-      )
+        next,
+      ),
     );
 
     this.nodes.push(
@@ -44,8 +44,8 @@ export class Quadtree {
           width,
           height,
         },
-        next
-      )
+        next,
+      ),
     );
 
     this.nodes.push(
@@ -56,8 +56,8 @@ export class Quadtree {
           width,
           height,
         },
-        next
-      )
+        next,
+      ),
     );
 
     this.nodes.push(
@@ -68,8 +68,8 @@ export class Quadtree {
           width,
           height,
         },
-        next
-      )
+        next,
+      ),
     );
   }
 

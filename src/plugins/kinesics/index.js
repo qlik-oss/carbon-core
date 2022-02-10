@@ -1,3 +1,3 @@
-import { kinesics } from "./kinesics";
+import {kinesics} from './kinesics';
 
-export { kinesics };
+export {kinesics};
