@@ -1,4 +1,3 @@
-import getPixelWidth from 'string-pixel-width';
 import createRendererBox from 'picasso.js/src/web/renderer/renderer-box';
 import {textBounds} from 'picasso.js/src/web/text-manipulation';
 import {Scene} from './scene';
@@ -16,7 +15,7 @@ const carbonRenderer = () => {
 
   rnRenderer.appendTo = (parent) => {
     if (!element) {
-      element = parent.createElement(rect, _key);
+      element = parent.createVirtualElement(rect, _key);
     }
   };
 
@@ -25,26 +24,18 @@ const carbonRenderer = () => {
   rnRenderer.root = () => element;
 
   rnRenderer.measureText = (opt) => {
-    if (!opt.text) {
-      return {width: getPixelWidth(opt, {size: 12}), height: 12};
+    if (opt.text) {
+      const fontFamily = opt.fontFamily.split(',')[0];
+      const fontSize = parseInt(opt.fontSize, 10);
+      const text = opt.text;
+      // eslint-disable-next-line no-undef
+      const result = HeliumCanvasApi.measureText({fontFamily, fontSize, text});
+      return result;
     }
-    let size = parseInt(opt.fontSize, 10);
-    if (isNaN(size)) {
-      size = 12;
-    }
-
-    const sourceFont = opt.fontFamily || 'arial';
-
-    const fontFamily = sourceFont
-      .split(',')
-      .map((s) => s?.trim()?.toLowerCase());
-    const font = fontFamily.length > 1 ? fontFamily[1] : fontFamily[0];
-    const dims = opt.fontSize
-      ? {width: getPixelWidth(opt.text, {size, font}), height: size}
-      : {width: getPixelWidth(opt.text, {size: 12, font})};
-    dims.width = Math.round(dims.width);
-    dims.height = Math.round(dims.height);
-    return dims;
+    const fontFamily = 'Source Sans Pro';
+    const fontSize = 12;
+    // eslint-disable-next-line no-undef
+    return HeliumCanvasApi.measureText({fontFamily, fontSize, text: opt});
   };
 
   rnRenderer.size = (opts) => {
@@ -53,6 +44,7 @@ const carbonRenderer = () => {
       rect = newRect;
       scene.resize(rect);
       if (element) {
+        element.clear();
         element.setClientRect(rect);
       }
       return newRect;
@@ -81,10 +73,7 @@ const carbonRenderer = () => {
     if (!element || !shapes) {
       return;
     }
-    if (element.getImmediate()) {
-      return;
-    }
-    let shapeId = 0;
+
     element.clear();
     scene.reset();
 
@@ -94,10 +83,11 @@ const carbonRenderer = () => {
           onShape(child);
         });
       } else {
-        shape.shapeId = shapeId;
-        shape.parentId = -1;
-        shapeId += 1;
-        element.add(shape);
+        // omit data
+        const s = Object.fromEntries(
+          Object.entries(shape).filter(([key]) => !['data'].includes(key)),
+        );
+        element.add(s);
         scene.add(shape);
       }
     };
@@ -105,6 +95,7 @@ const carbonRenderer = () => {
     shapes.forEach((shape) => {
       onShape(shape);
     });
+    element.paint();
   };
 
   rnRenderer.itemsAt = (input) => scene.itemsAt(input);
