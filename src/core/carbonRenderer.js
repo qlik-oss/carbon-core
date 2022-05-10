@@ -2,7 +2,7 @@ import createRendererBox from 'picasso.js/src/web/renderer/renderer-box';
 import {textBounds} from 'picasso.js/src/web/text-manipulation';
 import {Scene} from './scene';
 
-const carbonRenderer = (s) => {
+const carbonRenderer = () => {
   const rnRenderer = {textBounds};
   const scene = new Scene();
   let rect = createRendererBox();
@@ -24,15 +24,17 @@ const carbonRenderer = (s) => {
   rnRenderer.root = () => element;
 
   rnRenderer.measureText = (opt) => {
-    if(opt.text) {
+    if (opt.text) {
       const fontFamily = opt.fontFamily.split(',')[0];
       const fontSize = parseInt(opt.fontSize, 10);
       const text = opt.text;
+      // eslint-disable-next-line no-undef
       const result = HeliumCanvasApi.measureText({fontFamily, fontSize, text});
       return result;
     }
     const fontFamily = 'Source Sans Pro';
     const fontSize = 12;
+    // eslint-disable-next-line no-undef
     return HeliumCanvasApi.measureText({fontFamily, fontSize, text: opt});
   };
 
@@ -52,7 +54,6 @@ const carbonRenderer = (s) => {
   };
 
   rnRenderer.clear = () => {
-    console.log('clear')
     if (element && element.clear) {
       element.clear();
     }
@@ -61,7 +62,6 @@ const carbonRenderer = (s) => {
   };
 
   rnRenderer.destroy = () => {
-    console.log('destry')
     if (element) {
       element.destroy();
       element = null;
@@ -85,8 +85,7 @@ const carbonRenderer = (s) => {
       } else {
         // omit data
         const s = Object.fromEntries(
-          Object.entries(shape)
-          .filter(([key]) => !['data'].includes(key))
+          Object.entries(shape).filter(([key]) => !['data'].includes(key)),
         );
         element.add(s);
         scene.add(shape);
