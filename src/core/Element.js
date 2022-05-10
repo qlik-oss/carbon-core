@@ -18,7 +18,6 @@ export class Element {
 
   resetSize() {
     const size = this.canvas.getSize();
-    console.log('new size', size);
     this.boundingRect = {};
     this.setClientRect({x: 0, y: 0, ...size});
   }
@@ -42,7 +41,6 @@ export class Element {
 
   getBoundingClientRect() {
     if (this.canvas) {
-      console.log('returning', this.boundingRect);
       return this.boundingRect;
     }
     return undefined;
