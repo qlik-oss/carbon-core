@@ -17,7 +17,7 @@
   },
   "scripts": {
     "lint": "npx eslint . --fix",
-    "test": "npx jest --passWithNoTests",
+    "test": "npx jest",
     "ci:install": "yarn install --frozen-lockfile"
   },
   "devDependencies": {
@@ -30,12 +30,22 @@
     "eslint-plugin-prettier": "4.0.0",
     "jest": "27.5.1",
     "prettier": "2.5.1",
-    "semantic-release": "19.0.2"
+    "semantic-release": "19.0.2",
+    "metro-react-native-babel-preset": "0.70.1",
+    "react": "17.0.2",
+    "react-native": "0.68.0"
   },
   "peerDependencies": {
     "picasso-plugin-q": "^1.5.0",
     "picasso.js": "^1.5.0",
     "eslint": ">=7",
     "prettier": ">=2"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ]
   }
 }
