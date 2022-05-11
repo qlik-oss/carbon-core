@@ -9,7 +9,7 @@ export const createPicasso = ({renderer}) => {
 
   const pic = picasso({
     renderer: {
-      prio: ['carbon'],
+      prio: [renderer || 'carbon'],
     },
   });
   pic.use(picassoQ);
