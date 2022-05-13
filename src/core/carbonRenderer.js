@@ -28,14 +28,13 @@ const carbonRenderer = () => {
       const fontFamily = opt.fontFamily.split(',')[0];
       const fontSize = parseInt(opt.fontSize, 10);
       const text = opt.text;
-      // eslint-disable-next-line no-undef
-      const result = HeliumCanvasApi.measureText({fontFamily, fontSize, text});
-      return result;
+      if(text.length > 0) {
+        // eslint-disable-next-line no-undef
+        const result = HeliumCanvasApi.measureText({fontFamily, fontSize, text});
+        return result;
+      }
     }
-    const fontFamily = 'Source Sans Pro';
-    const fontSize = 12;
-    // eslint-disable-next-line no-undef
-    return HeliumCanvasApi.measureText({fontFamily, fontSize, text: opt});
+    return {width: 0, height: 0}
   };
 
   rnRenderer.size = (opts) => {
@@ -44,8 +43,7 @@ const carbonRenderer = () => {
       rect = newRect;
       scene.resize(rect);
       if (element) {
-        element.clear();
-        element.setClientRect(rect);
+        element.resize(rect);
       }
       return newRect;
     }
@@ -74,7 +72,7 @@ const carbonRenderer = () => {
       return;
     }
 
-    element.clear();
+    // element.clear();
     scene.reset();
 
     const onShape = (shape) => {
@@ -87,14 +85,15 @@ const carbonRenderer = () => {
         const s = Object.fromEntries(
           Object.entries(shape).filter(([key]) => !['data'].includes(key)),
         );
-        element.add(s);
+        // element.add(shape);
         scene.add(shape);
       }
     };
 
-    shapes.forEach((shape) => {
-      onShape(shape);
-    });
+     shapes.forEach((shape) => {
+       onShape(shape);
+     });
+    element.get2DCanvas().addShapes(shapes);
     element.paint();
   };
 

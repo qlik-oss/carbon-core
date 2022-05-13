@@ -1,7 +1,9 @@
+import EventEmitter from 'eventemitter3';
 export class Element {
   constructor(canvas) {
     if (canvas) {
       this.canvas = canvas;
+      this.eventEmitter = new EventEmitter();
       const size = canvas.getSize();
       this.boundingRect = {};
       this.setClientRect({x: 0, y: 0, ...size});
@@ -26,7 +28,19 @@ export class Element {
     return this.canvas;
   }
 
-  addEventListener() {}
+  addEventListener(type, listener) {
+    const c = this.eventEmitter.addListener(type, listener);
+    return c;
+  }
+
+  removeEventListener(type, listener) {
+    this.eventEmitter.removeListener(type, listener);
+  }
+
+  resize(rect) {
+    this.canvas.resize(rect);
+    this.setClientRect(rect);
+  }
 
   setClientRect(rect) {
     this.boundingRect.width = rect.width;
@@ -53,14 +67,8 @@ export class Element {
   paint() {
     this.canvas.draw();
   }
-  add(shape) {
-    if (shape.type === 'text') {
-      shape.fontSize = parseInt(shape.fontSize, 10);
-      shape.fontFamily = shape.fontFamily.split(',')[0];
-    }
-    this.canvas.drawShape(shape);
-  }
+
   destroy() {
-    // this.canvas = null;
+    this.canvas.destroy();
   }
 }
