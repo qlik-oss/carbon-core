@@ -24,8 +24,8 @@ const carbonRenderer = () => {
   rnRenderer.root = () => element;
 
   rnRenderer.measureText = (opt) => {
-    if (opt.text) {
-      const fontFamily = opt.fontFamily.split(',')[0];
+    if (opt.text && opt.fontSize) {
+      const fontFamily = opt.fontFamily || "Source Sans Pro";
       const fontSize = parseInt(opt.fontSize, 10);
       const text = opt.text;
       if(text.length > 0) {
