@@ -12,11 +12,14 @@ export const kinesics = (config) => {
         if (cc.brush.trigger) {
           cc.brush.trigger.forEach((brush) => {
             const cbrush = config.brush(brush.contexts[0]);
-            triggerBrushes.push({cbrush, data: brush.data});
+            triggerBrushes.push({cbrush, data: brush.data, style: cc.brush.consume[0].style});
           });
         }
       }
     });
+    if(triggerBrushes.length > 0) {
+      element.setSelectionBrushes(triggerBrushes);
+    }
   }
 
   function setupInteractions() {

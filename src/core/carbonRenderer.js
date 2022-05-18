@@ -72,7 +72,6 @@ const carbonRenderer = () => {
       return;
     }
 
-    // element.clear();
     scene.reset();
 
     const onShape = (shape) => {
@@ -81,11 +80,6 @@ const carbonRenderer = () => {
           onShape(child);
         });
       } else {
-        // omit data
-        const s = Object.fromEntries(
-          Object.entries(shape).filter(([key]) => !['data'].includes(key)),
-        );
-        // element.add(shape);
         scene.add(shape);
       }
     };
@@ -93,13 +87,16 @@ const carbonRenderer = () => {
      shapes.forEach((shape) => {
        onShape(shape);
      });
-    element.get2DCanvas().addShapes(shapes);
+
+    element.addShapes(shapes);
     element.paint();
   };
 
   rnRenderer.itemsAt = (input) => scene.itemsAt(input);
 
   rnRenderer.findShapes = (selector) => scene.findShapes(selector);
+
   return rnRenderer;
 };
+
 export {carbonRenderer};

@@ -1,19 +1,33 @@
 import EventEmitter from 'eventemitter3';
+import { transformEvent } from './transformEvent';
+import {throttle} from 'lodash';
+
 export class Element {
   constructor(canvas) {
     if (canvas) {
       this.canvas = canvas;
+      this.panning = false;
       this.eventEmitter = new EventEmitter();
+      this.panEventEmitter = new EventEmitter();
       const size = canvas.getSize();
       this.boundingRect = {};
       this.setClientRect({x: 0, y: 0, ...size});
+      this.shapes = [];
+      this.elements = [];
     }
   }
+
+  // the following two methods are to signal Picasso.js that this is mobile and will
+  // be recieving touchxxxx events
+  ontouchstart() {}
+  ontouchend() {}
 
   createVirtualElement(rect) {
     if (this.canvas) {
       const virtualCanvas = this.canvas.createVirtualCanvas(rect);
-      return new Element(virtualCanvas);
+      const element = new Element(virtualCanvas);
+      this.elements.push(element);
+      return element;
     }
     return undefined;
   }
@@ -35,6 +49,13 @@ export class Element {
 
   removeEventListener(type, listener) {
     this.eventEmitter.removeListener(type, listener);
+  }
+
+  emit(type, event) {
+    const txEvent = transformEvent(event);
+    if(txEvent.transformed) {
+      this.eventEmitter.emit(type, txEvent);
+    }
   }
 
   resize(rect) {
@@ -61,14 +82,29 @@ export class Element {
   }
 
   clear() {
+    this.shapes = false;
     this.canvas.clear();
   }
 
   paint() {
-    this.canvas.draw();
+    if(this.shapes) {
+      this.canvas.draw();
+    }
   }
 
   destroy() {
     this.canvas.destroy();
   }
+
+  addShapes(shapes) {
+     this.canvas.addShapes(shapes);
+  }
+  setSelectionBrushes(brushes) {
+    this.canvas.setSelectionBrushes(brushes);
+  }
+
+  confirmSelections() {
+    this.canvas.confirmSelections();
+  }
+
 }
