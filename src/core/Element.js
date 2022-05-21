@@ -52,9 +52,12 @@ export class Element {
   }
 
   emit(type, event) {
+      console.log('about to!! we??');
     const txEvent = transformEvent(event);
     if(txEvent.transformed) {
-      this.eventEmitter.emit(type, txEvent);
+      console.log('did we??');
+      const newEvent = {...event, ...txEvent}
+      this.eventEmitter.emit(type, newEvent);
     }
   }
 
@@ -97,6 +100,7 @@ export class Element {
   }
 
   addShapes(shapes) {
+    console.log("shapes", shapes);
      this.canvas.addShapes(shapes);
   }
   setSelectionBrushes(brushes) {
@@ -105,6 +109,14 @@ export class Element {
 
   confirmSelections() {
     this.canvas.confirmSelections();
+  }
+
+  setTouchesStartListener(listener) {
+    this.touchesStartListener = listener;
+  }
+
+  getTouchesStartListener() {
+    return this.touchesStartListener;
   }
 
 }
