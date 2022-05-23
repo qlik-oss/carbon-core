@@ -1,3 +1,10 @@
+# [2.0.0-alpha.2](https://github.com/qlik-oss/carbon-core/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2022-05-23)
+
+
+### Bug Fixes
+
+* bump versions ([770c370](https://github.com/qlik-oss/carbon-core/commit/770c370ae6bc97b379cf227e2fbabe64938ebfd0))
+
 # [2.0.0-alpha.1](https://github.com/qlik-oss/carbon-core/compare/v1.0.6...v2.0.0-alpha.1) (2022-05-23)
 
 
