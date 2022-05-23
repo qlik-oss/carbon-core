@@ -116,4 +116,16 @@ export class Element {
     return this.touchesStartListener;
   }
 
+  mount(component) {
+    this.jsxComponent = component;
+  }
+
+  renderComponent(data) {
+    this.eventEmitter.emit('renderComponentWithData', data);
+  }
+
+  getJsxComponent() {
+    return this.jsxComponent;
+  }
+
 }
