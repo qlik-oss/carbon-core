@@ -55,8 +55,6 @@ export const kinesics = (config) => {
     },
     off() {},
     on() {},
-    destroy() {
-      // element.removeAllTouchListeners();
-    },
+    destroy() {},
   };
 };

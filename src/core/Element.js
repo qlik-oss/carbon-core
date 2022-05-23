@@ -127,5 +127,4 @@ export class Element {
   getJsxComponent() {
     return this.jsxComponent;
   }
-
 }
