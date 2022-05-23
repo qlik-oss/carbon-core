@@ -1,3 +1,26 @@
+# [2.0.0-alpha.1](https://github.com/qlik-oss/carbon-core/compare/v1.0.6...v2.0.0-alpha.1) (2022-05-23)
+
+
+### Bug Fixes
+
+* add event listener for touches ([a0375c6](https://github.com/qlik-oss/carbon-core/commit/a0375c6b784ef3538b021261660235a82fc8ba64))
+* evalute brushes ([d408892](https://github.com/qlik-oss/carbon-core/commit/d408892916bc5dede3e93de7e2b1090a9f7380ad))
+* get rid of split ([9fb19d1](https://github.com/qlik-oss/carbon-core/commit/9fb19d1c217ad5fbc8022021f7e5b8ea1ee2191b))
+* port jsx elements ([5e09178](https://github.com/qlik-oss/carbon-core/commit/5e0917851d4823e69858924bb6a6b8474320725d))
+* remove console.logs ([a902d80](https://github.com/qlik-oss/carbon-core/commit/a902d803a825c7174f24d0317c58b71bc6f7d257))
+* resizing ([22c0c0a](https://github.com/qlik-oss/carbon-core/commit/22c0c0af59c02e763f24e67848cc3c73d6d63877))
+
+
+### Features
+
+* helium ready ([1127b43](https://github.com/qlik-oss/carbon-core/commit/1127b43db45300055c28fc5ab9b6ae75551b3297))
+* helium ready ([66ba980](https://github.com/qlik-oss/carbon-core/commit/66ba980a8d493be0a6667e7064fc72b26eada3b1))
+
+
+### BREAKING CHANGES
+
+* move over to optimized helium engine
+
 # [2.0.0-alpha.1](https://github.com/qlik-oss/carbon-core/compare/v1.0.6...v2.0.0-alpha.1) (2022-05-21)
 
 
