@@ -1,3 +1,10 @@
+# [2.0.0-alpha.3](https://github.com/qlik-oss/carbon-core/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2022-05-31)
+
+
+### Bug Fixes
+
+* pre-parse font size on JS side ([b7ba086](https://github.com/qlik-oss/carbon-core/commit/b7ba086dfaff3869d701131d9597ef4fb0062851))
+
 # [2.0.0-alpha.2](https://github.com/qlik-oss/carbon-core/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2022-05-23)
 
 
