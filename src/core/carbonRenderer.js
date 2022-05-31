@@ -85,6 +85,9 @@ const carbonRenderer = () => {
     };
 
      shapes.forEach((shape) => {
+       if(shape.type === 'text') {
+         shape.fontSize = parseInt(shape.fontSize, 10);
+       }
        onShape(shape);
      });
 
