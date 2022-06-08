@@ -8,7 +8,6 @@ export class Element {
       this.canvas = canvas;
       this.panning = false;
       this.eventEmitter = new EventEmitter();
-      this.panEventEmitter = new EventEmitter();
       const size = canvas.getSize();
       this.boundingRect = {};
       this.setClientRect({x: 0, y: 0, ...size});
@@ -126,5 +125,9 @@ export class Element {
 
   getJsxComponent() {
     return this.jsxComponent;
+  }
+
+  title(value) {
+    this.eventEmitter.emit('titleChanged', value);
   }
 }
