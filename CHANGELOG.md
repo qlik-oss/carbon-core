@@ -1,3 +1,10 @@
+# [2.0.0-alpha.4](https://github.com/qlik-oss/carbon-core/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2022-06-08)
+
+
+### Bug Fixes
+
+* add titleChanged event ([b435072](https://github.com/qlik-oss/carbon-core/commit/b4350728d446be60bb8f3cd99bbc7a22a063b80c))
+
 # [2.0.0-alpha.3](https://github.com/qlik-oss/carbon-core/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2022-05-31)
 
 
