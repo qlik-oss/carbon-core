@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/qlik-oss/carbon-core/compare/v2.0.0...v2.0.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* change setup brushes ([3d16ee8](https://github.com/qlik-oss/carbon-core/commit/3d16ee81171eb316fb807828fbd1b7dbeb6b8ad0))
+
 # [2.0.0](https://github.com/qlik-oss/carbon-core/compare/v1.0.6...v2.0.0) (2022-10-02)
 
 
