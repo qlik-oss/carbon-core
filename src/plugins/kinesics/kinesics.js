@@ -4,19 +4,18 @@ export const kinesics = (config) => {
   let onTouchStart = [];
   const {element} = config;
   let initialized = false;
+  let initializedBrushes = false;
 
-  function setupBrushes() {
-    config?.settings?.components.forEach((c) => {
-      const cc = config.component(c.key);
-      if (cc.brush) {
-        if (cc.brush.trigger) {
-          cc.brush.trigger.forEach((brush) => {
-            const cbrush = config.brush(brush.contexts[0]);
-            triggerBrushes.push({cbrush, data: brush.data, style: cc.brush.consume[0].style});
-          });
-        }
-      }
-    });
+  function _setupBrushes(brush, chartInstance) {
+    initializedBrushes = true;
+   
+    if (brush.trigger) {
+      brush.trigger.forEach((b) => {
+        const cbrush = chartInstance.brush(b.contexts[0]);
+        triggerBrushes.push({cbrush, data: b.data, style: brush.consume[0].style});
+      });
+    }
+ 
     if(triggerBrushes.length > 0) {
       element.setSelectionBrushes(triggerBrushes);
     }
@@ -49,12 +48,16 @@ export const kinesics = (config) => {
             c.call(comp, touchEvent);
           });
         });
-        setupBrushes();
         setupInteractions();
       }
     },
     off() {},
     on() {},
     destroy() {},
+    setupBrushes(brush, chartInstance) {
+      if(!initializedBrushes) {
+        _setupBrushes(brush, chartInstance);
+      }
+    }
   };
 };
