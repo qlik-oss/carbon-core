@@ -107,6 +107,10 @@ export class Element {
     this.canvas.confirmSelections();
   }
 
+  clearSelections() {
+    this.canvas.clearSelections();
+  }
+
   setTouchesStartListener(listener) {
     this.touchesStartListener = listener;
   }
