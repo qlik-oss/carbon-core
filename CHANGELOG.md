@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/qlik-oss/carbon-core/compare/v2.0.1...v2.0.2) (2022-11-15)
+
+
+### Bug Fixes
+
+* add clear ([2daab0c](https://github.com/qlik-oss/carbon-core/commit/2daab0c2e8a3af86e9b407983bcf9cb64dcb46c3))
+
 ## [2.0.1](https://github.com/qlik-oss/carbon-core/compare/v2.0.0...v2.0.1) (2022-10-03)
 
 
