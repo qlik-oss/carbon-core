@@ -92,7 +92,6 @@ const carbonRenderer = () => {
      });
 
     element.addShapes(shapes);
-    element.paint();
   };
 
   rnRenderer.itemsAt = (input) => scene.itemsAt(input);
