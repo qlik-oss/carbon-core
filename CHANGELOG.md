@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/qlik-oss/carbon-core/compare/v2.0.2...v2.0.3) (2022-11-19)
+
+
+### Bug Fixes
+
+* change paint responsibility ([c862f53](https://github.com/qlik-oss/carbon-core/commit/c862f53191c47cae73027cabda61155f7e2f2e29))
+
 ## [2.0.2](https://github.com/qlik-oss/carbon-core/compare/v2.0.1...v2.0.2) (2022-11-15)
 
 
