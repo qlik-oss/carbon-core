@@ -134,4 +134,8 @@ export class Element {
   title(value) {
     this.eventEmitter.emit('titleChanged', value);
   }
+
+  setLongPressHandler(fn) {
+    this.canvas.setLongPressHandler(fn);
+  }
 }
