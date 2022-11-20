@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/qlik-oss/carbon-core/compare/v2.0.3...v2.0.4) (2022-11-20)
+
+
+### Bug Fixes
+
+* long press on native ([ba06d19](https://github.com/qlik-oss/carbon-core/commit/ba06d19bed062d3022e2411fe57571fa1e5143af))
+
 ## [2.0.3](https://github.com/qlik-oss/carbon-core/compare/v2.0.2...v2.0.3) (2022-11-19)
 
 
