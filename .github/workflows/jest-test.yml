@@ -12,7 +12,7 @@ jobs:
           fetch-depth: 1
       - uses: ./.github/actions/cancel_workflow
       - name: Test using Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '14'
       - uses: ./.github/actions/yarn_install
