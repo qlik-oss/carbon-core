@@ -21,15 +21,15 @@
     "ci:install": "yarn install --frozen-lockfile"
   },
   "devDependencies": {
-    "@react-native-community/eslint-config": "3.0.1",
-    "@semantic-release/changelog": "6.0.1",
+    "@react-native-community/eslint-config": "3.2.0",
+    "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "eslint": "7.32.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-prettier": "4.0.0",
+    "eslint-config-prettier": "8.10.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-prettier": "4.2.1",
     "jest": "27.5.1",
-    "prettier": "2.5.1",
+    "prettier": "2.8.8",
     "semantic-release": "19.0.2"
   },
   "peerDependencies": {
